@@ -14,7 +14,7 @@ class ChatLogic
 {
 private:
     //// STUDENT CODE
-    ////
+    //// TODO
 
     // data handles (owned)
     std::vector<GraphNode *> _nodes;
