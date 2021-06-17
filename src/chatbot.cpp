@@ -44,6 +44,55 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 //// TODO
+// Copy constructor
+ChatBot::ChatBot(const ChatBot& source) {
+    // TODO Change to initializer list?
+    std::cout << "Copy Constructor\n";
+
+    _image = source._image;                         // TODO: Change to *_image ?
+    _chatLogic = source._chatLogic;                 // TODO: Change to *_chatLogic ?
+    _rootNode = source._rootNode;                   // TODO: Change to *_rootNode ?
+}
+
+// Copy assignment
+ChatBot& ChatBot::operator=(const ChatBot& source) {
+    // TODO
+    std::cout << "ChatBot Copy Assignment\n";
+
+    if (this == &source)
+        return *this;
+    _image = source._image;                         // TODO: Change to *_image ?
+    _chatLogic = source._chatLogic;                 // TODO: Change to *_chatLogic ?
+    _rootNode = source._rootNode;                   // TODO: Change to *_rootNode ?
+    return *this;
+}
+
+// Move constructor
+ChatBot::ChatBot(ChatBot&& source) {
+    // TODO
+    std::cout << "ChatBot Move Constructor\n";
+    _image = source._image;                         // TODO: Change to *_image ?
+    _chatLogic = source._chatLogic;                 // TODO: Change to *_chatLogic ?
+    _rootNode = source._rootNode;                   // TODO: Change to *_rootNode ?
+    source._image = nullptr;
+    source._chatLogic = nullptr;
+    source._rootNode = nullptr;
+}
+
+// Move assignment
+ChatBot& ChatBot::operator=(ChatBot&& source) {
+    // TODO
+    std::cout << "ChatBot Move Assignment\n";
+    if (this == &source)
+        return *this;
+    _image = source._image;                         // TODO: Change to *_image ?
+    _chatLogic = source._chatLogic;                 // TODO: Change to *_chatLogic ?
+    _rootNode = source._rootNode;                   // TODO: Change to *_rootNode ?
+    source._image = nullptr;
+    source._chatLogic = nullptr;
+    source._rootNode = nullptr;
+    return *this;
+}
 
 ////
 //// EOF STUDENT CODE
