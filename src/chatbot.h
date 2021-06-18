@@ -30,12 +30,6 @@ public:
     //// STUDENT CODE
     //// TODO
 
-    // ~X()                        // destructor            OK
-    // X(const X&)                 // copy constructor      Ok
-    // X& operator=(const X&)      // copy assignment       Ok
-    // X(X&&)                      // move constructor      Ok
-    // X& operator=(X&&)           // move assignment       Ok
-
     ChatBot(const ChatBot& source);                 // copy constructor
     ChatBot& operator=(const ChatBot& source);      // copy assignment
     ChatBot(ChatBot&& source);                      // move constructor

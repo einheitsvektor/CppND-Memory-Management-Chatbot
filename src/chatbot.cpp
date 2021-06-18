@@ -46,7 +46,6 @@ ChatBot::~ChatBot()
 //// TODO
 // Copy constructor
 ChatBot::ChatBot(const ChatBot& source) {
-    // TODO Change to initializer list?
     std::cout << "Copy Constructor\n";
 
     _image = new wxBitmap();
@@ -57,7 +56,6 @@ ChatBot::ChatBot(const ChatBot& source) {
 
 // Copy assignment
 ChatBot& ChatBot::operator=(const ChatBot& source) {
-    // TODO
     std::cout << "ChatBot Copy Assignment\n";
 
     if (this == &source)
@@ -72,7 +70,6 @@ ChatBot& ChatBot::operator=(const ChatBot& source) {
 
 // Move constructor
 ChatBot::ChatBot(ChatBot&& source) {
-    // TODO
     std::cout << "ChatBot Move Constructor\n";
     _image = source._image;
     _chatLogic = source._chatLogic;
@@ -87,7 +84,6 @@ ChatBot::ChatBot(ChatBot&& source) {
 
 // Move assignment
 ChatBot& ChatBot::operator=(ChatBot&& source) {
-    // TODO
     std::cout << "ChatBot Move Assignment\n";
     if (this == &source)
         return *this;
