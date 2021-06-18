@@ -49,9 +49,10 @@ ChatBot::ChatBot(const ChatBot& source) {
     // TODO Change to initializer list?
     std::cout << "Copy Constructor\n";
 
-    _image = source._image;                         // TODO: Change to *_image ?
-    _chatLogic = source._chatLogic;                 // TODO: Change to *_chatLogic ?
-    _rootNode = source._rootNode;                   // TODO: Change to *_rootNode ?
+    _image = new wxBitmap();
+    *_image = *source._image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
 }
 
 // Copy assignment
@@ -61,9 +62,11 @@ ChatBot& ChatBot::operator=(const ChatBot& source) {
 
     if (this == &source)
         return *this;
-    _image = source._image;                         // TODO: Change to *_image ?
-    _chatLogic = source._chatLogic;                 // TODO: Change to *_chatLogic ?
-    _rootNode = source._rootNode;                   // TODO: Change to *_rootNode ?
+    delete _image;
+    _image = new wxBitmap();
+    *_image = *source._image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
     return *this;
 }
 
@@ -71,12 +74,15 @@ ChatBot& ChatBot::operator=(const ChatBot& source) {
 ChatBot::ChatBot(ChatBot&& source) {
     // TODO
     std::cout << "ChatBot Move Constructor\n";
-    _image = source._image;                         // TODO: Change to *_image ?
-    _chatLogic = source._chatLogic;                 // TODO: Change to *_chatLogic ?
-    _rootNode = source._rootNode;                   // TODO: Change to *_rootNode ?
+    _image = source._image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _currentNode = source._currentNode;
+    _chatLogic->SetChatbotHandle(this);
     source._image = nullptr;
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
+    source._currentNode = nullptr;
 }
 
 // Move assignment
@@ -85,12 +91,16 @@ ChatBot& ChatBot::operator=(ChatBot&& source) {
     std::cout << "ChatBot Move Assignment\n";
     if (this == &source)
         return *this;
-    _image = source._image;                         // TODO: Change to *_image ?
-    _chatLogic = source._chatLogic;                 // TODO: Change to *_chatLogic ?
-    _rootNode = source._rootNode;                   // TODO: Change to *_rootNode ?
+    delete _image;
+    _image = new wxBitmap();
+    _image = source._image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _chatLogic->SetChatbotHandle(this);
     source._image = nullptr;
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
+    source._currentNode = nullptr;
     return *this;
 }
 
